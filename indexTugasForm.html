@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Kontak</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        #contactForm {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        textarea {
+            resize: vertical; /* Allows vertical resizing */
+            height: 100px; /* Default height */
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%; /* Full width for button */
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: -8px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulir Kontak</h1>
+    <form id="contactForm" action="send_email.php" method="post">
+        <label for="name">Nama Lengkap:</label>
+        <input type="text" id="name" name="name"><span class="error" id="nameError"></span>
+
+        <label for="email">Alamat Email:</label>
+        <input type="email" id="email" name="email"><span class="error" id="emailError"></span>
+
+        <label for="subject">Subjek:</label>
+        <input type="text" id="subject" name="subject"><span class="error" id="subjectError"></span>
+
+        <label for="message">Pesan:</label>
+        <textarea id="message" name="message"></textarea><span class="error" id="messageError"></span>
+
+        <button type="submit">Kirim</button>
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            $('#contactForm').on('submit', function(event) {
+                let valid = true;
+
+                $('.error').text('');
+                if ($('#name').val().length < 3) {
+                    $('#nameError').text('Nama lengkap minimal 3 karakter.');
+                    valid = false;
+                }
+
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test($('#email').val())) {
+                    $('#emailError').text('Alamat email tidak valid.');
+                    valid = false;
+                }
+
+                if ($('#subject').val().trim() === '') {
+                    $('#subjectError').text('Subjek tidak boleh kosong.');
+                    valid = false;
+                }
+
+                if ($('#message').val().trim() === '') {
+                    $('#messageError').text('Pesan tidak boleh kosong.');
+                    valid = false;
+                }
+
+                if (!valid) {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

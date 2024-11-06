@@ -1,0 +1,159 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('restaurant.avif');
+    scroll-behavior: smooth;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background: #333;
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    top: 0;
+    /* z-index: 100; */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    padding: 10px;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+.hero {
+    height: 100vh;
+    background: url('restaurant.avif') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    flex-direction: column;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.hero .btn {
+    background-color: #ffcc00;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.hero .btn:hover {
+    background-color: #ff9900;
+}
+
+.section {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.menu h2, .contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: wheat;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap; /* Membuat elemen berpindah ke baris baru */
+    justify-content: center;
+    gap: 20px; /* Mengurangi jarak antar cards */
+}
+
+.card {
+    background-color: white;
+    padding: 15px; /* Mengurangi padding dalam card */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: calc(25% - 40px); /* Setiap card menempati 25% dari lebar kontainer */
+    text-align: center;
+    margin-bottom: 20px; /* Menambahkan jarak antar baris */
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #777;
+}
+
+form {
+    max-width: 500px;
+    margin: auto;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button.btn {
+    background-color: #ffcc00;
+    padding: 10px 20px;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.btn:hover {
+    background-color: #ff9900;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
